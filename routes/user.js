@@ -13,16 +13,25 @@ router.get("/signup",(req,res)=>{
 router.post("/signup", async (req, res) => {
     try {
         const { fullName, email, password } = req.body;
-
         const user = new User({ fullName, email, password });
         await user.save();
-
         res.redirect("/home");
     } catch (err) {
         console.error(err);
         res.status(500).send(err.message);
     }
 });
+
+router.post("/signin",async (req,res)=>{
+    try{
+        const {email,password}=req.body;
+        const exixtingUser = await User.findOne({email});
+        if(exixtingUser) return res.redirect("/");
+
+    }catch(err){
+        return res.status(401).json({msg:"No person found"})
+    }
+})
 
 
 module.exports = router;

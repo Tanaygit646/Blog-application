@@ -19,5 +19,5 @@ app.get('/',(req,res)=>{
     res.render("home")
 })
 app.use("/user",router)
-const port = 20000;
+const port = 50000;
 app.listen(port,()=> console.log(`http://localhost:${port}`));
