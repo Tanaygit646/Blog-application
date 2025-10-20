@@ -7,7 +7,7 @@
     <title>Home</title>
   </head>
   <body>
-    <%- include('./partials/nav') %>
+    <%- include('./partials/nav', { error: error }) %>
     <div class="container mt-4">
       <form action="/user/signin" method="post">
         <div class="mb-3">

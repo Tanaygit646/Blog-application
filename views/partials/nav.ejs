@@ -24,3 +24,12 @@
     </div>
   </div>
 </nav>
+
+<% if (typeof error !== "undefined" && error) { %>
+  <div class="alert alert-danger" role="alert">
+    <div class="mt-4">
+      <%= error %>
+    </div>
+  </div>
+<% } %>
+
